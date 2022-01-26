@@ -3,6 +3,7 @@ dotenv.config(process.env);
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER;
+const phoneNumber = process.env.PHONE_NUMBER;
 const client = require("twilio")(accountSid, authToken);
 
 exports.sendMessage = async (req, res) => {
@@ -11,7 +12,7 @@ exports.sendMessage = async (req, res) => {
     let response = await client.messages.create({
       body: `You have a message from ${message.name}: Email ${message.email}, saying : "${message.message}"`,
       from: twilioPhoneNumber,
-      to: "+254778186406",
+      to: phoneNumber,
     });
 
     res.status(200).json(response);

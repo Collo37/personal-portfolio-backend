@@ -25,6 +25,8 @@ app.use("/static", express.static(path.join(__dirname, "public")));
 app.use("/api/v1/projects", projectRoutes);
 app.use("/api/v1/contact", messageRoutes);
 
+// When uploading the api to heroku use the code below to host the backend together with the frontend
+
 //app.use(express.static(path.join(__dirname, "/client/build")));
 
 //app.get('*', (req, res) => {
